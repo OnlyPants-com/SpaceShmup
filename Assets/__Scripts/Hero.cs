@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Dynamic;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Hero : MonoBehaviour
@@ -8,8 +12,10 @@ public class Hero : MonoBehaviour
     public float speed = 30;
     public float rollMult = -45;
     public float pitchMult = 30;
-    [Header("Dynamic")]
-    public float shiledLevel = 1;
+    [Header("Dynamic")] [Range(0,4)] [SerializeField]
+    private float _sheildLevel = 1;
+    [Tooltip("This field holds a reference to the last triggering GameObject")]
+    private GameObject lastTriggerGo = null;
 
     void Awake()
     {
@@ -40,6 +46,33 @@ public class Hero : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        Debug.Log("Shield trigger hit by: " + go.gameObject.name);
+        //Debug.Log("Shield trigger hit by: " + go.gameObject.name);
+        if (go == lastTriggerGo) return;
+        lastTriggerGo = go;
+
+        Enemy enemy = go.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            shieldLevel--;
+            Destroy(go);
+        }
+        else
+        {
+            Debug.LogWarning("Shield trigger hit by non-Enem: " + go.name);
+        }
+    }
+    
+    public float shieldLevel
+    {
+        get { return (_sheildLevel); }
+        private set
+        {
+            _sheildLevel = Mathf.Min(value, 4);
+            if (value < 0)
+            {
+                Destroy(this.gameObject);
+                Main.HERO_DIED();
+            }
+        }
     }
 }
