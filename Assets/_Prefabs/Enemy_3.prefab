@@ -82,6 +82,11 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 100
+  lifeTime: 5
+  midpointYRange: {x: 1.5, y: 3}
+  drawDebugInfo: 0
+  points: []
+  birthTime: 0
 --- !u!114 &948517014849597390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70544af2107fa98438c01fb81ae41d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundsType: 0
-  radius: 1
-  keepOnScreen: 1
+  boundsType: 2
+  radius: 3
+  keepOnScreen: 0
   screenLocs: 0
   camWidth: 0
   camHeight: 0
