@@ -24,6 +24,9 @@ public class Enemy_2 : Enemy
         p0.x = -bndCheck.camWidth - bndCheck.radius;
         p0.y = Random.Range(-bndCheck.camHeight, bndCheck.camHeight);
 
+        p1 = Vector3.zero;
+        p1.x = bndCheck.camHeight + bndCheck.radius;
+        p1.y = Random.Range(-bndCheck.camHeight, bndCheck.camHeight);
         //possibly swap sides
         if (Random.value > 0.5f)
         {

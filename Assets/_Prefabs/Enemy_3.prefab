@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -1707321171045915600}
   - component: {fileID: -4201194447407856219}
   - component: {fileID: 948517014849597390}
-  - component: {fileID: 8842106115833517672}
   - component: {fileID: 8103477367464577220}
   m_Layer: 9
   m_Name: Enemy_3
@@ -83,6 +82,7 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 100
+  powerUpDropChance: 0.75
   lifeTime: 5
   midpointYRange: {x: 1.5, y: 3}
   drawDebugInfo: 0
@@ -106,24 +106,6 @@ MonoBehaviour:
   screenLocs: 0
   camWidth: 0
   camHeight: 0
---- !u!114 &8842106115833517672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217192625371338093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70544af2107fa98438c01fb81ae41d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boundsType: 2
-  radius: 2.5
-  keepOnScreen: 0
-  screenLocs: 0
-  camWidth: 0
-  camHeight: 0
 --- !u!114 &8103477367464577220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showingColor: 0
   blinkCompleteTime: 0
+  ignoreOnCollisionEnter: 0
 --- !u!1001 &6217192625199160741
 PrefabInstance:
   m_ObjectHideFlags: 0
